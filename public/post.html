@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文章內容</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="post.js" defer></script>
+</head>
+<body>
+  <div class="flex-end-bar">
+    <button id="logoutBtn" type="button" aria-label="登出">登出</button>
+    <p id="user-info" ></p>
+  </div>
+  <main class="container">
+    <div id="postDetail"></div>
+    <section id="commentsSection">
+      <h2>留言區</h2>
+      <form id="commentForm">
+        <textarea name="content" placeholder="寫下你的留言..." required></textarea>
+        <div class="center-btn">
+          <button type="submit">送出留言</button>
+        </div>
+      </form>
+      <hr>
+      <div id="commentsList"></div>
+    </section>
+    <div class="center-btn">
+      <button onclick="location.href='index.html'">回首頁</button>
+    </div>
+  </main>
+</body>
+</html>

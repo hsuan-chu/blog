@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>發文</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="posts.js" defer></script>
+</head>
+<body>
+  <header>
+  <div class="flex-end-bar">
+    <p id="user-info" style="margin: 0;"></p>
+    <button id="logoutBtn" type="button"  aria-label="登出">登出</button>
+  </div>
+  <div class="container">
+    <h1>新增文章</h1>
+  </div>
+</header>
+  <main class="container">
+  <form id="postForm">
+    <input type="text" name="title" placeholder="標題" required>
+    <textarea name="content" placeholder="內容" rows="10" required></textarea>
+    <input type="file" name="image" accept="image/*">
+    <div class="center-btn">
+      <button type="submit">發佈文章</button>
+    </div>
+  </form>
+  <div class="center-btn">
+    <button type="button" onclick="location.href='index.html'">回首頁</button>
+  </div>
+</main>
+</body>
+</html>

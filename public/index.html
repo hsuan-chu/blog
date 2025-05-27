@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>部落格</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="index.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <header>
+    <div class="flex-end-bar">
+      <p id="user-info"></p>
+      <button id="logoutBtn" type="button" class="hide" aria-label="登出">登出</button>
+      <button id="deleteAccountBtn" type="button" class="hide" aria-label="刪除帳號">刪除帳號</button>
+    </div>
+    <div class="container">
+      <h1>部落格</h1>
+    </div>
+  </header>
+  <main class="container">
+    <input type="text" id="searchInput" placeholder="搜尋關鍵字..." style="margin-bottom:16px;width:60%;max-width:300px;">
+    <button id="searchBtn">搜尋</button>
+    <button id="clearSearchBtn" style="display:none;">清除</button>
+    <button id="postBtn" style="display: none;" onclick="location.href='posts.html'">發文</button>
+    <section id="postList"></section>
+  </main>
+</body>
+
+</html>
