@@ -10,9 +10,19 @@ fetch('/me')
     if (data.loggedIn) {
       postBtn.classList.remove('hide');
       if (loginBtn) loginBtn.classList.add('hide');
-      userInfo.textContent = `你好，${data.user.nickname}`;
+      
+      userInfo.innerHTML = `你好，<span id="userNameLink" style="color:#1976d2;cursor:pointer;text-decoration:underline;">${data.user.nickname}</span>`;
       logoutBtn.classList.remove('hide');
       deleteAccountBtn.classList.remove('hide');
+      
+      setTimeout(() => {
+        document.getElementById('userNameLink').onclick = function() {
+          const filtered = allPosts.filter(post => post.author === data.user.nickname);
+          renderPosts(filtered, data.user.nickname);
+          document.getElementById('clearSearchBtn').style.display = 'inline-block';
+          document.getElementById('searchInput').value = '';
+        };
+      }, 0);
     } else {
       postBtn.classList.add('hide');
       if (!loginBtn) {
