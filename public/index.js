@@ -52,11 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 });
-
-// ...後面 renderPosts、搜尋等程式碼不變...
-
-  
-  let allPosts = [];
+let allPosts = [];
   
 function renderPosts(posts, keyword = '') {
   const postList = document.getElementById('postList');
