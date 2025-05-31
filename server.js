@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const sqlite3 = require('sqlite3').verbose();
@@ -7,6 +8,7 @@ const session = require('express-session');
 const app = express();
 
 const port = process.env.PORT || 3000;
+const sessionSecret = process.env.SESSION_SECRET || 'defaultSecret';
 const upload = multer({ dest: path.join(__dirname, 'public', 'uploads') });
 
 app.use(session({
