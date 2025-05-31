@@ -77,12 +77,14 @@ function renderPosts(posts, keyword = '') {
     div.className = 'post-card';
     let title = post.title;
     let content = post.content.length > 100 ? post.content.slice(0, 100) + '...' : post.content;
+    content = content.replace(/\n/g, '<br>');
     let author = post.author;
     if (reg) {
       title = title.replace(reg, '<mark>$1</mark>');
       content = content.replace(reg, '<mark>$1</mark>');
       author = author.replace(reg, '<mark>$1</mark>');
     }
+    content = content.replace(/\n/g, '<br>');
     div.innerHTML = `
       <h2><a href="post.html?id=${post.id}">${title}</a></h2>
       <p class="author">作者：${author}｜${post.date}</p>

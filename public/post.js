@@ -10,11 +10,12 @@ fetch(`/post/${postId}`)
       document.getElementById('postDetail').innerHTML = '<p>找不到文章</p>';
       return;
     }
+    const contentWithBr = post.content.replace(/\n/g, '<br>');
     document.getElementById('postDetail').innerHTML = `
       <h1>${post.title}</h1>
       <p class="author">作者：${post.author}｜${post.date}</p>
-      ${post.image ? `<img src="${post.image}" style="max-width:100%;">` : ''}
-      <p>${post.content}</p>
+      ${post.image ? `<img src="${post.image}" 文章的部分還是沒有顯示換行ㄟstyle="max-width:100%;">` : ''}
+      <p>${contentWithBr}</p>
     `;
   });
 
@@ -26,9 +27,10 @@ function loadComments() {
       const list = document.getElementById('commentsList');
       list.innerHTML = '';
       comments.forEach(c => {
+        const commentContent = (c.content || '').replace(/\n/g, '<br>');
         const div = document.createElement('div');
         div.className = 'post-card';
-        div.innerHTML = `<p><b>${c.nickname || '匿名'}</b>：${c.content}</p><p style="font-size:0.9em;color:#888">${c.date}</p>`;
+        div.innerHTML = `<p><b>${c.nickname || '匿名'}</b>：${commentContent}</p><p style="font-size:0.9em;color:#888">${c.date}</p>`;
         list.appendChild(div);
       });
     });
