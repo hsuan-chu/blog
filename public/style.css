@@ -1,3 +1,4 @@
+/* 基本字體與背景 */
 body {
   font-family: 'Noto Sans TC', 'Segoe UI', 'Arial', sans-serif;
   background: #e0f2ff;
@@ -6,6 +7,7 @@ body {
   min-height: 100vh;
 }
 
+/* 主要內容區塊 */
 .container {
   max-width: 700px;
   margin: 40px auto 0 auto;
@@ -13,6 +15,7 @@ body {
   padding: 32px 24px 24px 24px;
 }
 
+/* 標題 */
 h1 {
   font-size: 2.2rem;
   color: #6e6e6e;
@@ -21,7 +24,9 @@ h1 {
   text-align: center;
 }
 
+/* 右上角使用者資訊 */
 #user-info {
+  cursor: pointer;
   text-align: right;
   color: #1565c0;
   font-weight: bold;
@@ -29,6 +34,7 @@ h1 {
   font-size: 1.1rem;
 }
 
+/* 按鈕樣式 */
 #postBtn,
 button[type="submit"],
 button {
@@ -49,6 +55,7 @@ button:hover {
   transform: translateY(-2px) scale(1.04);
 }
 
+/* 表單欄位 */
 form input[type="text"],
 form input[type="email"],
 form input[type="password"],
@@ -70,6 +77,7 @@ form textarea:focus {
   background: #fff;
 }
 
+/* 文章卡片 */
 .post-card {
   background: #f0f7fa;
   padding: 16px 18px 16px 18px;
@@ -100,6 +108,7 @@ form textarea:focus {
   margin-bottom: 6px;
 }
 
+/* 連結樣式 */
 a {
   color: #2196f3;
   text-decoration: none;
@@ -112,21 +121,22 @@ a:hover {
   text-decoration: underline;
 }
 
+/* 表單區塊 */
 form {
   margin: 0 auto;
   max-width: 350px;
   background: #f0f7fa;
   padding: 24px 18px 18px 18px;
-
 }
 
+/* 按鈕置中 */
 .center-btn {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-
+/* 右上功能列 */
 .flex-end-bar {
   display: flex;
   justify-content: flex-end;
@@ -134,16 +144,14 @@ form {
   margin-right: 24px;
 }
 
-.flex-end-bar>*:not(:first-child) {
+.flex-end-bar > *:not(:first-child) {
   margin-left: 12px;
 }
 
-/* flex-end-bar 內的 p */
 .flex-end-bar #user-info {
   margin: 0;
 }
 
-/* flex-end-bar 內的按鈕 */
 .flex-end-bar button {
   margin-left: 12px;
 }
@@ -152,10 +160,21 @@ form {
 #deleteAccountBtn {
   color: red;
 }
+
+/* 隱藏元素用 */
 .hide {
   display: none !important;
 }
 
+/* 螢光標記（搜尋高亮） */
+mark {
+  background: #ffe082;
+  color: #d84315;
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+/* 響應式設計 */
 @media (max-width: 800px) {
   .container {
     max-width: 98vw;
