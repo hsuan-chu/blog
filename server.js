@@ -8,11 +8,17 @@ const { Pool } = require('pg');
 const app = express();
 
 const port = process.env.PORT || 3000;
+const host = process.env.HOST || '0.0.0.0';
 const sessionSecret = process.env.SESSION_SECRET || 'defaultSecret';
 const upload = multer({ dest: path.join(__dirname, 'public', 'uploads') });
 
+
+
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL || 'postgresql://test_user_l4yf_user:zrLiJNh5JqNfSA3nwOp5gYOxVsw4VsP4@dpg-d0t9j0be5dus73fl7cd0-a.singapore-postgres.render.com/test_user_l4yf'
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
 
 app.use(session({
@@ -204,5 +210,5 @@ app.post('/deleteAccount', async (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
+  console.log(`Server is running at http://${host}:${port}`);
 });
