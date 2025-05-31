@@ -27,7 +27,7 @@ fetch(`/post/${postId}`)
     document.getElementById('postDetail').innerHTML = `
       <h1>${post.title}</h1>
       <p class="author">作者：${post.author}｜${post.date}</p>
-      ${post.image ? `<img src="${post.image}" 文章的部分還是沒有顯示換行ㄟstyle="max-width:100%;">` : ''}
+      ${post.image ? `<img src="${post.image}"style="max-width:100%;">` : ''}
       <p>${contentWithBr}</p>
     `;
   });
