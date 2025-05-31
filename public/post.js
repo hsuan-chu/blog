@@ -2,6 +2,19 @@
 const params = new URLSearchParams(window.location.search);
 const postId = params.get('id');
 
+fetch('/me')
+  .then(res => res.json())
+  .then(data => {
+    const logoutBtn = document.getElementById('logoutBtn');
+    const deleteAccountBtn = document.getElementById('deleteAccountBtn');
+    if (!data.loggedIn) {
+      if (logoutBtn) logoutBtn.classList.add('hide');
+      if (deleteAccountBtn) deleteAccountBtn.classList.add('hide');
+    } else {
+      if (logoutBtn) logoutBtn.classList.remove('hide');
+      if (deleteAccountBtn) deleteAccountBtn.classList.remove('hide');
+    }
+  });
 // 顯示文章內容
 fetch(`/post/${postId}`)
   .then(res => res.json())
@@ -14,7 +27,7 @@ fetch(`/post/${postId}`)
     document.getElementById('postDetail').innerHTML = `
       <h1>${post.title}</h1>
       <p class="author">作者：${post.author}｜${post.date}</p>
-      ${post.image ? `<img src="${post.image}"style="max-width:100%;">` : ''}
+      ${post.image ? `<img src="${post.image}" 文章的部分還是沒有顯示換行ㄟstyle="max-width:100%;">` : ''}
       <p>${contentWithBr}</p>
     `;
   });
