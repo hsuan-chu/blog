@@ -1,11 +1,19 @@
 const express = require('express');
 const path = require('path');
 const sqlite3 = require('sqlite3').verbose();
-const app = express();
-const port = 3000;
 const multer = require('multer');
-const upload = multer({ dest: path.join(__dirname, 'public', 'uploads') });
 const session = require('express-session');
+
+const app = express();
+
+const port = process.env.PORT || 3000;
+const upload = multer({ dest: path.join(__dirname, 'public', 'uploads') });
+
+app.use(session({
+  secret: '101058',
+  resave: false,
+  saveUninitialized: true
+}));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
