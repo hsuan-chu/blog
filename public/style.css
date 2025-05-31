@@ -108,6 +108,15 @@ form textarea:focus {
   margin-bottom: 6px;
 }
 
+/* 限制文章內圖片大小 */
+.post-card img,
+form img {
+  max-width: 200px;
+  max-height: 150px;
+  display: block;
+  margin-bottom: 8px;
+  object-fit: contain;
+}
 /* 連結樣式 */
 a {
   color: #2196f3;
