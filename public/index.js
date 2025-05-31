@@ -9,6 +9,7 @@ fetch('/me')
     const deleteAccountBtn = document.getElementById('deleteAccountBtn');
     if (data.loggedIn) {
       postBtn.classList.remove('hide');
+      postBtn.style.display = 'inline-block';
       if (loginBtn) loginBtn.classList.add('hide');
       
       userInfo.innerHTML = `你好，<span id="userNameLink" style="color:#1976d2;cursor:pointer;text-decoration:underline;">${data.user.nickname}</span>`;
