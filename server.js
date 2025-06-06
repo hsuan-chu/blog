@@ -135,25 +135,16 @@ app.post('/addPost', upload.single('image'), async (req, res) => {
     res.json({ success: false, message: '發文失敗' });
   }
 });
-
-
-
 app.get('/posts', async (req, res) => {
-  const { user } = req.query;
-  let query = 'SELECT * FROM posts';
-  let params = [];
-  if (user) {
-    query += ' WHERE author = $1';
-    params.push(user);
-  }
-  query += ' ORDER BY date DESC';
+  const query = 'SELECT * FROM posts ORDER BY date DESC';
   try {
-    const result = await pool.query(query, params);
+    const result = await pool.query(query);
     res.json(result.rows);
   } catch (err) {
     res.status(500).json({ error: 'Database error' });
   }
 });
+
 
 app.get('/post/:id', async (req, res) => {
   const id = req.params.id;
